@@ -1,9 +1,6 @@
-import { createClient } from '@supabase/supabase-js';
+const { createClient } = require('@supabase/supabase-js');
 
-const supabaseUrl = process.env.SUPABASE_URL;
-const supabaseKey = process.env.SUPABASE_KEY;
-
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   // Configurar CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
@@ -13,11 +10,12 @@ export default async function handler(req, res) {
     return res.status(200).end();
   }
 
+  const supabaseUrl = process.env.SUPABASE_URL;
+  const supabaseKey = process.env.SUPABASE_KEY;
   const supabase = createClient(supabaseUrl, supabaseKey);
 
   try {
     if (req.method === 'GET') {
-      // Obtener todos los miembros activos
       const { data, error } = await supabase
         .from('miembros')
         .select('*')
@@ -25,12 +23,10 @@ export default async function handler(req, res) {
         .order('nombre', { ascending: true });
 
       if (error) throw error;
-
       return res.status(200).json(data);
     }
 
     if (req.method === 'POST') {
-      // Añadir nuevo miembro
       const { nombre, voz } = req.body;
 
       if (!nombre || !voz) {
@@ -44,7 +40,6 @@ export default async function handler(req, res) {
         .single();
 
       if (error) throw error;
-
       return res.status(201).json({ success: true, data });
     }
 
@@ -53,4 +48,4 @@ export default async function handler(req, res) {
     console.error('Error:', error);
     return res.status(500).json({ error: error.message });
   }
-}
+};
