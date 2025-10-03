@@ -10,6 +10,15 @@ module.exports = async function handler(req, res) {
     return res.status(200).end();
   }
 
+    // Validar variables de entorno
+  if (!supabaseUrl || !supabaseKey) {
+    console.error('Missing environment variables:', { supabaseUrl: !!supabaseUrl, supabaseKey: !!supabaseKey });
+    return res.status(500).json({
+      error: 'Server configuration error: Missing Supabase credentials',
+      details: { hasUrl: !!supabaseUrl, hasKey: !!supabaseKey }
+    });
+  }
+
   const supabaseUrl = process.env.SUPABASE_URL;
   const supabaseKey = process.env.SUPABASE_KEY;
   const supabase = createClient(supabaseUrl, supabaseKey);
