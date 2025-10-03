@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#4285f4">
+  <title>Control de Ausencias - Coro</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <h1>🎵 Control de Ausencias</h1>
+      <p class="subtitle">Coro - Ensayos y Actuaciones</p>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="tabs">
+      <button class="tab-btn active" data-tab="registro">Registrar</button>
+      <button class="tab-btn" data-tab="miembros">Miembros</button>
+      <button class="tab-btn" data-tab="historial">Historial</button>
+    </nav>
+
+    <!-- Loading Spinner -->
+    <div class="loading" id="loading" style="display: none;">
+      <div class="spinner"></div>
+      <p>Cargando...</p>
+    </div>
+
+    <!-- Tab: Registro de Asistencia -->
+    <div class="tab-content active" id="tab-registro">
+      <div class="card">
+        <h2>Registrar Asistencia</h2>
+
+        <div class="form-group">
+          <label for="fecha">Fecha del evento:</label>
+          <input type="date" id="fecha" class="input" required>
+        </div>
+
+        <div class="form-group">
+          <label for="tipo">Tipo de evento:</label>
+          <select id="tipo" class="input">
+            <option value="Ensayo">Ensayo</option>
+            <option value="Actuación">Actuación</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Marcar ausentes:</label>
+          <div class="search-box">
+            <input type="text" id="search" class="input" placeholder="Buscar miembro...">
+          </div>
+          <div id="lista-miembros" class="miembros-list">
+            <!-- Se llenará dinámicamente -->
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="notas">Notas (opcional):</label>
+          <textarea id="notas" class="input" rows="3" placeholder="Ej: Justificación de ausencias..."></textarea>
+        </div>
+
+        <button class="btn btn-primary" id="btn-guardar">Guardar Asistencia</button>
+        <div id="mensaje" class="message" style="display: none;"></div>
+      </div>
+    </div>
+
+    <!-- Tab: Gestión de Miembros -->
+    <div class="tab-content" id="tab-miembros">
+      <div class="card">
+        <h2>Añadir Nuevo Miembro</h2>
+
+        <div class="form-group">
+          <label for="nuevo-nombre">Nombre:</label>
+          <input type="text" id="nuevo-nombre" class="input" placeholder="Nombre completo" required>
+        </div>
+
+        <div class="form-group">
+          <label for="nueva-voz">Voz:</label>
+          <select id="nueva-voz" class="input">
+            <option value="Soprano">Soprano</option>
+            <option value="Contralto">Contralto</option>
+            <option value="Tenor">Tenor</option>
+            <option value="Bajo">Bajo</option>
+          </select>
+        </div>
+
+        <button class="btn btn-primary" id="btn-nuevo-miembro">Añadir Miembro</button>
+        <div id="mensaje-miembro" class="message" style="display: none;"></div>
+      </div>
+
+      <div class="card">
+        <h2>Lista de Miembros</h2>
+        <div id="lista-todos-miembros">
+          <!-- Se llenará dinámicamente -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab: Historial -->
+    <div class="tab-content" id="tab-historial">
+      <div class="card">
+        <h2>Historial de Asistencias</h2>
+        <div id="lista-historial">
+          <!-- Se llenará dinámicamente -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

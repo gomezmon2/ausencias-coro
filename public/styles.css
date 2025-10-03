@@ -1,0 +1,365 @@
+/* Reset y estilos base */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 10px;
+    color: #333;
+  }
+
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding-bottom: 20px;
+  }
+
+  /* Header */
+  .header {
+    text-align: center;
+    color: white;
+    padding: 20px 10px;
+    margin-bottom: 20px;
+  }
+
+  .header h1 {
+    font-size: 28px;
+    margin-bottom: 5px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    opacity: 0.9;
+  }
+
+  /* Tabs */
+  .tabs {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 5px;
+    border-radius: 10px;
+  }
+
+  .tab-btn {
+    flex: 1;
+    padding: 12px 10px;
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s;
+  }
+
+  .tab-btn.active {
+    background: white;
+    color: #667eea;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Tab Content */
+  .tab-content {
+    display: none;
+  }
+
+  .tab-content.active {
+    display: block;
+    animation: fadeIn 0.3s;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Cards */
+  .card {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .card h2 {
+    font-size: 20px;
+    color: #667eea;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f0f0f0;
+  }
+
+  /* Form Elements */
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #555;
+    font-size: 14px;
+  }
+
+  .input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s;
+  }
+
+  .input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  }
+
+  .search-box {
+    margin-bottom: 10px;
+  }
+
+  /* Lista de Miembros */
+  .miembros-list {
+    max-height: 400px;
+    overflow-y: auto;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 10px;
+  }
+
+  .miembro-item {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    margin-bottom: 8px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    user-select: none;
+  }
+
+  .miembro-item:hover {
+    background: #e9ecef;
+  }
+
+  .miembro-item.ausente {
+    background: #fee;
+    border: 2px solid #f88;
+  }
+
+  .miembro-item input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+    cursor: pointer;
+  }
+
+  .miembro-info {
+    flex: 1;
+  }
+
+  .miembro-nombre {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 2px;
+  }
+
+  .miembro-voz {
+    font-size: 12px;
+    color: #666;
+  }
+
+  /* Buttons */
+  .btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 10px;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+  }
+
+  .btn-primary:active {
+    transform: translateY(0);
+  }
+
+  .btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  /* Messages */
+  .message {
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 15px;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .message.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+  }
+
+  .message.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+  }
+
+  /* Loading */
+  .loading {
+    text-align: center;
+    padding: 40px;
+    color: white;
+  }
+
+  .spinner {
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 15px;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  /* Historial Items */
+  .historial-item {
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border-left: 4px solid #667eea;
+  }
+
+  .historial-fecha {
+    font-weight: 600;
+    color: #667eea;
+    margin-bottom: 5px;
+  }
+
+  .historial-tipo {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 8px;
+  }
+
+  .historial-stats {
+    display: flex;
+    gap: 15px;
+    font-size: 13px;
+  }
+
+  .stat {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .stat-presentes {
+    color: #28a745;
+  }
+
+  .stat-ausentes {
+    color: #dc3545;
+  }
+
+  /* Lista de todos los miembros */
+  .todos-miembros-list {
+    display: grid;
+    gap: 10px;
+  }
+
+  .miembro-card {
+    padding: 12px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+  }
+
+  .miembro-card-nombre {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 3px;
+  }
+
+  .miembro-card-voz {
+    font-size: 13px;
+    color: #666;
+  }
+
+  /* Empty State */
+  .empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: #999;
+  }
+
+  .empty-state-icon {
+    font-size: 48px;
+    margin-bottom: 10px;
+  }
+
+  /* Responsive */
+  @media (max-width: 480px) {
+    .header h1 {
+      font-size: 24px;
+    }
+
+    .tab-btn {
+      font-size: 12px;
+      padding: 10px 8px;
+    }
+
+    .card {
+      padding: 15px;
+    }
+  }
+
+  /* PWA Install Prompt */
+  .install-prompt {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: none;
+  }
+
+  .install-prompt.show {
+    display: block;
+  }
